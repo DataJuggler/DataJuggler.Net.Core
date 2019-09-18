@@ -1,2 +1,2 @@
-# DataJuggler.Net.Core
-This is a port of DataJuggler.Net from Dot Net Framework to Dot Net Core. Currently In Preview
+# DataJuggler.Net
+DataJuggler.Net is a core component of several Data Juggler projects including DataTier.Net, DB Compare and XML Mirror.
