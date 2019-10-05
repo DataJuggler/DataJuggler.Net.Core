@@ -36,6 +36,7 @@ namespace DataJuggler.Net.Core
         private List<CheckConstraint> checkConstraints;
         private List<ForeignKeyConstraint> foreignKeys;
         private string schemaName;
+        private bool createBindingCallback;
 		#endregion
 
  		#region Constructor +1 override
@@ -490,6 +491,20 @@ namespace DataJuggler.Net.Core
 				}
 			}
 			#endregion	
+
+            #region CreateBindingCallback
+            public bool CreateBindingCallback
+            {
+                get
+                {
+                    return createBindingCallback;
+                }
+                set
+                {
+                    createBindingCallback = value;
+                }
+            }
+            #endregion
 
 			#region CreateCollectionClass
 			public bool CreateCollectionClass
