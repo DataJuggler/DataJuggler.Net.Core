@@ -1,27 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Data Juggler</Authors>
     <Company>Data Juggler</Company>
-    <Description>I updated the reference to System.Data.SqlClient to 4.7.0
-I updated the reference to DataJuggler.UltimateHelper.Core to version 1.1.0
+    <Description>This class is a port of DataJuggler.Net for the .Net Framework, which is used by 
+DataTier.Net and DB Compare to read SQL Server database schema and code generate stored procedure
+driven data tiers.
+
+The two main classes are:
+SQLDatabaseConnector - A wrapper for SqlDatabaseConnection that reads database schema.
+
+CSharpClassWriter - A class that is useful in code generating C# classes.
 
 </Description>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/DataJuggler/DataJuggler.Net.Core</PackageProjectUrl>
-    <Version>2.1.1</Version>
+    <Version>2.1.5</Version>
     <Copyright>Data Juggler - Corby Nichols</Copyright>
     <RepositoryType>Git Hub</RepositoryType>
     <RepositoryUrl>https://github.com/DataJuggler/DataJuggler.Net.Core.git</RepositoryUrl>
     <PackageTags>C#, SQL Server, DataTier.Net, DataJuggler.Net</PackageTags>
-    <PackageReleaseNotes>I updated the Nuget package for System.Data.SqlClient Rc1 from preview 9.</PackageReleaseNotes>
+    <PackageReleaseNotes>I added new properties named Tag to DataField, DataRow and DataTable classes. I use these fields in a new
+project I am working on called DataDiff, which will be used to find changes before and after something happens.
+
+I updated the reference to System.Data.SqlClient to 4.8.0
+I updated the reference to DataJuggler.UltimateHelper.Core to version 1.1.4</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.UltimateHelper.Core" Version="1.1.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="DataJuggler.UltimateHelper.Core" Version="1.1.7" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -35,6 +35,7 @@ namespace DataJuggler.Net.Core
         private List<DataIndex> indexes;
         private List<CheckConstraint> checkConstraints;
         private List<ForeignKeyConstraint> foreignKeys;
+        private string tag;
         private string schemaName;
         private bool createBindingCallback;
 		#endregion
@@ -849,6 +850,17 @@ namespace DataJuggler.Net.Core
 				}
 			}
 			#endregion
+
+            #region Tag
+            /// <summary>
+            /// This property gets or sets the value for 'Tag'.
+            /// </summary>
+            public string Tag
+            {
+                get { return tag; }
+                set { tag = value; }
+            }
+            #endregion
 
 			#region xmlFileName
 			public string XmlFileName

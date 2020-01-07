@@ -49,6 +49,7 @@ namespace DataJuggler.Net.Core
         private bool treatIntegerAsBoolean;
         private bool isEnumeration;
         private string enumDataTypeName;
+		private string tag;
         
         // used only for DataTier.Net
         private string fieldSetName;
@@ -783,6 +784,17 @@ namespace DataJuggler.Net.Core
 				}
 			}
 	        #endregion
+
+			#region Tag
+            /// <summary>
+            /// This property gets or sets the value for 'Tag'.
+            /// </summary>
+            public string Tag
+            {
+                get { return tag; }
+                set { tag = value; }
+            }
+            #endregion
 
             #region TreatIntegerAsBoolean
             /// <summary>
