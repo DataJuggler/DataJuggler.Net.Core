@@ -2,11 +2,11 @@
 
 #region using statements
 
-using DataJuggler.Net.Core.Enumerations;
+using DataJuggler.Net5.Enumerations;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class Function

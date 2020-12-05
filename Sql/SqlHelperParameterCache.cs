@@ -8,7 +8,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace DataJuggler.Net.Core.Sql
+namespace DataJuggler.Net5.Sql
 {
 
     /// <summary>

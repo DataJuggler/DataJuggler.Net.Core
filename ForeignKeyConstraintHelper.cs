@@ -2,14 +2,14 @@
 
 #region using statements
 
-using DataJuggler.UltimateHelper.Core;
+using DataJuggler.UltimateHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class ForeignKeyConstraintHelper

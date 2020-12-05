@@ -6,7 +6,7 @@ using System.Data;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class DataHelper

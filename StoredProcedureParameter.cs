@@ -7,7 +7,7 @@ using System;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class StoredProcedureParameter

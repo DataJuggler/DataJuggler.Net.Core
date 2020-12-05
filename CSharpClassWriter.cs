@@ -2,7 +2,7 @@
      
 #region using statements
 
-using DataJuggler.UltimateHelper.Core;
+using DataJuggler.UltimateHelper;
 using System;
 using System.IO;
 using System.Text;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
   
     #region class CSharpClassWriter
@@ -33,8 +33,8 @@ namespace DataJuggler.Net.Core
         private ProjectFileManager fileManager;
         private bool textWriterMode;
         private StringBuilder textWriter;
-        private const string DelegatesReference = "DataJuggler.Net.Core.Delegates";
-        private const string EnumerationsReference = "DataJuggler.Net.Core.Enumerations";
+        private const string DelegatesReference = "DataJuggler.Net5.Delegates";
+        private const string EnumerationsReference = "DataJuggler.Net5.Enumerations";
         #endregion
 		
 		#region Constructor
@@ -238,8 +238,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-            #region CloneField(DataJuggler.Net.Core.DataField field,string newObjectName)
-            public string CloneField(DataJuggler.Net.Core.DataField field,string newObjectName)
+            #region CloneField(DataJuggler.Net5.DataField field,string newObjectName)
+            public string CloneField(DataJuggler.Net5.DataField field,string newObjectName)
 			{
                 // local
                 string fieldName = CapitalizeFirstChar(field.FieldName, true);
@@ -342,7 +342,7 @@ namespace DataJuggler.Net.Core
 					        case DataManager.DataTypeEnum.DataTable:
 					        
 					            // set data type to DataTable
-						        dataType =  "DataJuggler.Net.Core.DataTable";
+						        dataType =  "DataJuggler.Net5.DataTable";
 
                                 // required
                                 break;
@@ -475,13 +475,13 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 			
-			#region CreateForEach(DataJuggler.Net.Core.DataTable table)
+			#region CreateForEach(DataJuggler.Net5.DataTable table)
 			/// <summary>
 			/// This method creates a foreach for each field in the table
 			/// </summary>
 			/// <param name="table"></param>
 			/// <returns></returns>
-			public string CreateForEach(DataJuggler.Net.Core.DataTable table)
+			public string CreateForEach(DataJuggler.Net5.DataTable table)
 			{
 				// Create NewObjectName; Example CategoriesObject
 				string newobjectname = NewObjectName(GetClassName(table),true,"Object",true);
@@ -761,14 +761,14 @@ namespace DataJuggler.Net.Core
             } 
             #endregion
 
-            #region GetCompareLine(DataJuggler.Net.Core.DataTable table, string primaryKeyName)
+            #region GetCompareLine(DataJuggler.Net5.DataTable table, string primaryKeyName)
             /// <summary>
             /// This method writes the line in the GetIndex method to check for the match
             /// </summary>
             /// <param name="table"></param>
             /// <param name="primaryKeyName"></param>
             /// <returns></returns>
-            public string GetCompareLine(DataJuggler.Net.Core.DataTable table, string primaryKeyName)
+            public string GetCompareLine(DataJuggler.Net5.DataTable table, string primaryKeyName)
 			{
 				// Create New Object Name
 				string newobjectname = NewObjectName(GetClassName(table),true,"Object",true);
@@ -1015,7 +1015,7 @@ namespace DataJuggler.Net.Core
 				StringBuilder sb;
 					
 				// Loop Through Each field
-				foreach(DataJuggler.Net.Core.DataField field in fields)
+				foreach(DataJuggler.Net5.DataField field in fields)
 				{
 					// If This field Is A String 
 					if((field.DataType == DataManager.DataTypeEnum.String) || (field.DataType == DataManager.DataTypeEnum.DateTime))
@@ -1052,8 +1052,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
             
-			#region LoadField(DataJuggler.Net.Core.DataField field)
-			public string LoadField(DataJuggler.Net.Core.DataField Field)
+			#region LoadField(DataJuggler.Net5.DataField field)
+			public string LoadField(DataJuggler.Net5.DataField Field)
 			{
 				// String Builder  
 				StringBuilder sb = new StringBuilder("this.");
@@ -1169,8 +1169,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region NullField(DataJuggler.Net.Core.DataField field)
-			public string NullField(DataJuggler.Net.Core.DataField Field)
+			#region NullField(DataJuggler.Net5.DataField field)
+			public string NullField(DataJuggler.Net5.DataField Field)
 			{
 				// Create StringBuilder
 				StringBuilder sb = new StringBuilder("if(this.");
@@ -1180,13 +1180,13 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-            #region ParseFieldValue(DataJuggler.Net.Core.DataField field)
+            #region ParseFieldValue(DataJuggler.Net5.DataField field)
             /// <summary>
             /// Parse the field value
             /// </summary>
             /// <param name="field"></param>
             /// <returns></returns>
-            public string ParseFieldValue(DataJuggler.Net.Core.DataField field)
+            public string ParseFieldValue(DataJuggler.Net5.DataField field)
 			{
 				// Create StringBuilder Object
 				StringBuilder sb = new StringBuilder();
@@ -1231,14 +1231,14 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 			
-			#region SaveObject(DataJuggler.Net.Core.DataTable table)
+			#region SaveObject(DataJuggler.Net5.DataTable table)
 			/// <summary>
 			/// This method writes the call to save
             /// success = 
 			/// </summary>
 			/// <param name="table"></param>
 			/// <returns></returns>
-			public string SaveObject(DataJuggler.Net.Core.DataTable table)
+			public string SaveObject(DataJuggler.Net5.DataTable table)
 			{
 				// Create New Object Name
 				string newobjectname = NewObjectName(GetClassName(table),false,"Object",true);
@@ -1261,8 +1261,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 				
-			#region UpdateLine(DataJuggler.Net.Core.DataField field)
-			public string UpdateLine(DataJuggler.Net.Core.DataField Field)
+			#region UpdateLine(DataJuggler.Net5.DataField field)
+			public string UpdateLine(DataJuggler.Net5.DataField Field)
 			{
 				// Create StringBuilder To Update This field
 				StringBuilder sb = new StringBuilder("dataRow.Fields[");
@@ -1320,7 +1320,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region WriteAddMethod(DataTable table)
-			private void WriteAddMethod(DataJuggler.Net.Core.DataTable table)
+			private void WriteAddMethod(DataJuggler.Net5.DataTable table)
 			{
 				// Begin Region For AddMethod
 				BeginRegion("Add() void");
@@ -1476,7 +1476,7 @@ namespace DataJuggler.Net.Core
             private void WriteClasses(List<DataTable> tables, string nameSpaceName)
 			{	
 				// Write Each Class
-				foreach(DataJuggler.Net.Core.DataTable table in tables)
+				foreach(DataJuggler.Net5.DataTable table in tables)
 				{
                     // must set the ObjectLibraryNameSpace for each table here
                     table.ObjectNameSpaceName = nameSpaceName;
@@ -1646,7 +1646,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region WriteConstructor()
-			private void WriteConstructor(DataJuggler.Net.Core.DataTable table)
+			private void WriteConstructor(DataJuggler.Net5.DataTable table)
 			{
 				// Begin Region Constructor
 				BeginRegion("Constructor");
@@ -1671,8 +1671,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region WriteCreateTableMethod(DataJuggler.Net.Core.DataTable table)
-			private void WriteCreateTableMethod(DataJuggler.Net.Core.DataTable table)
+			#region WriteCreateTableMethod(DataJuggler.Net5.DataTable table)
+			private void WriteCreateTableMethod(DataJuggler.Net5.DataTable table)
 			{
 				// string for writing lines
 				string line = null;
@@ -1683,12 +1683,12 @@ namespace DataJuggler.Net.Core
 				// StringBuilder To Build Complex Strings
 				StringBuilder sb = new StringBuilder();
 
-				// Write BeginRegion "CreateTable(DataJuggler.Net.Core.DataTable table)";
-				line = "CreateTable(DataJuggler.Net.Core.DataTable table)";
+				// Write BeginRegion "CreateTable(DataJuggler.Net5.DataTable table)";
+				line = "CreateTable(DataJuggler.Net5.DataTable table)";
 				BeginRegion(line);
 
 				// Write Method Name
-				line = "private void CreateTable(DataJuggler.Net.Core.DataTable table)";
+				line = "private void CreateTable(DataJuggler.Net5.DataTable table)";
 				WriteLine(line);
 
 				// WriteOpenBracket
@@ -1698,11 +1698,11 @@ namespace DataJuggler.Net.Core
 				Indent++;
 
 				// Instanciate table
-				line = "this.table = new DataJuggler.Net.Core.DataTable();";
+				line = "this.table = new DataJuggler.Net5.DataTable();";
 				WriteLine(line);
 
 				// Create field For Adding To Fields Collection
-				line = "DataJuggler.Net.Core.DataField field = new DataJuggler.Net.Core.DataField();";
+				line = "DataJuggler.Net5.DataField field = new DataJuggler.Net5.DataField();";
 				WriteLine(line);
 
 				// Set table Properties
@@ -1759,7 +1759,7 @@ namespace DataJuggler.Net.Core
 				}
 
 				// WriteFields Collection
-				foreach(DataJuggler.Net.Core.DataField Field in table.ActiveFields)
+				foreach(DataJuggler.Net5.DataField Field in table.ActiveFields)
 				{
 					// Write Blank Line
 					WriteLine();
@@ -1769,7 +1769,7 @@ namespace DataJuggler.Net.Core
 					sb.Append("field: ");
 					sb.Append(Field.FieldName);
 					WriteComment(sb.ToString());
-					line = "field = new DataJuggler.Net.Core.DataField();";
+					line = "field = new DataJuggler.Net5.DataField();";
 					WriteLine(line);
 
 					// Write field Property
@@ -1888,8 +1888,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region WriteDataClassVariables(DataJuggler.Net.Core.DataTable table)
-			private void WriteDataClassVariables(DataJuggler.Net.Core.DataTable table)
+			#region WriteDataClassVariables(DataJuggler.Net5.DataTable table)
+			private void WriteDataClassVariables(DataJuggler.Net5.DataTable table)
 			{
 				// local StringBuilder
 				StringBuilder sb = new StringBuilder();
@@ -1974,8 +1974,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 			
-			#region WriteDeleteChanges(DataJuggler.Net.Core.DataTable table)
-			private void WriteDeleteChanges(DataJuggler.Net.Core.DataTable table)
+			#region WriteDeleteChanges(DataJuggler.Net5.DataTable table)
+			private void WriteDeleteChanges(DataJuggler.Net5.DataTable table)
 			{
 				// If table Has Primary Key
 				if(table.HasPrimaryKey)
@@ -2012,7 +2012,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region WriteExportToDataRowMethod(DataJuggler.Net.DataRow dataTable)
-			private void WriteExportToDataRowMethod(DataJuggler.Net.Core.DataTable dataTable)
+			private void WriteExportToDataRowMethod(DataJuggler.Net5.DataTable dataTable)
 			{
 				// string for each fieldline to update
 				string line = null;
@@ -2058,7 +2058,7 @@ namespace DataJuggler.Net.Core
 				WriteLine();
 
 				// Create row
-				DataJuggler.Net.Core.DataRow dataRow = new DataRow(dataTable);
+				DataJuggler.Net5.DataRow dataRow = new DataRow(dataTable);
 
 				// Loop Through Fields Collection 
 				foreach(DataField dataField in dataTable.ActiveFields)
@@ -2221,8 +2221,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion 
 			
-			#region WriteGetIndex(DataJuggler.Net.Core.DataTable table)
-			private void WriteGetIndex(DataJuggler.Net.Core.DataTable table)
+			#region WriteGetIndex(DataJuggler.Net5.DataTable table)
+			private void WriteGetIndex(DataJuggler.Net5.DataTable table)
 			{
 				// Determine Type Of field Primary Key Is
 				string dataType = ConvertDataType(table.PrimaryKey);
@@ -2497,8 +2497,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 			
-			#region WriteInitialChanges(DataJuggler.Net.Core.DataTable table)
-			private void WriteInitialChanges(DataJuggler.Net.Core.DataTable table)
+			#region WriteInitialChanges(DataJuggler.Net5.DataTable table)
+			private void WriteInitialChanges(DataJuggler.Net5.DataTable table)
 			{
 				// string for new objectname
 				string newobjectname = NewObjectName(GetClassName(table),false,"Initial",false);
@@ -2745,8 +2745,8 @@ namespace DataJuggler.Net.Core
 
 			#endregion
 			
-			#region WriteLoadMethodFromDataRow(DataJuggler.Net.Core.DataTable table)
-			private void WriteLoadMethodFromDataRow(DataJuggler.Net.Core.DataTable table)
+			#region WriteLoadMethodFromDataRow(DataJuggler.Net5.DataTable table)
+			private void WriteLoadMethodFromDataRow(DataJuggler.Net5.DataTable table)
 			{
 				// Local Variable
 				string line = "";
@@ -2768,7 +2768,7 @@ namespace DataJuggler.Net.Core
 				WriteComment("Load Each field");
 				
 				// Load Each field
-				foreach(DataJuggler.Net.Core.DataField Field in table.ActiveFields)
+				foreach(DataJuggler.Net5.DataField Field in table.ActiveFields)
 				{
 					// If This Type Of field Is Supported
 					if(DataManager.IsSupported(Field.DataType))
@@ -2932,8 +2932,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region WriteLoadMethods(DataJuggler.Net.Core.DataTable table)
-			private void WriteLoadMethods(DataJuggler.Net.Core.DataTable table)
+			#region WriteLoadMethods(DataJuggler.Net5.DataTable table)
+			private void WriteLoadMethods(DataJuggler.Net5.DataTable table)
 			{	
 				// string for LoadMethodRegion
 				string line = LoadMethodRegion();
@@ -2965,7 +2965,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region WriteMethods()
-			private void WriteMethods(DataJuggler.Net.Core.DataTable table)
+			private void WriteMethods(DataJuggler.Net5.DataTable table)
 			{
 				// Begin Region Constructor
 				BeginRegion("Methods");
@@ -3091,8 +3091,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region WriteProperties(DataJuggler.Net.Core.DataTable table) void
-			private void WriteProperties(DataJuggler.Net.Core.DataTable table)
+			#region WriteProperties(DataJuggler.Net5.DataTable table) void
+			private void WriteProperties(DataJuggler.Net5.DataTable table)
 			{
 				// Begin Region For Properties
 				BeginRegion("Properties");
@@ -3493,14 +3493,14 @@ namespace DataJuggler.Net.Core
                         // Write This References
                         WriteReference(reference);
 
-                        // if this reference name equals DataJuggler.Net.Core.Delegates
+                        // if this reference name equals DataJuggler.Net5.Delegates
                         if ((!hasDelegateReference) && (TextHelper.IsEqual(reference.ReferenceName, DelegatesReference)))
                         {
                             // set to true
                             hasDelegateReference = true;
                         }
 
-                        // if this reference name equals DataJuggler.Net.Core.Enumerations
+                        // if this reference name equals DataJuggler.Net5.Enumerations
                         if ((!hasEnumerationsReference) && (TextHelper.IsEqual(reference.ReferenceName, EnumerationsReference)))
                         {
                             // set to true
@@ -3514,7 +3514,7 @@ namespace DataJuggler.Net.Core
                         // create a reference
                         referenceObject = new Reference(DelegatesReference, 0);
 
-                        // write out the reference for DataJuggler.Net.Core.Delegates
+                        // write out the reference for DataJuggler.Net5.Delegates
                         WriteReference(referenceObject);
                     }
 
@@ -3524,7 +3524,7 @@ namespace DataJuggler.Net.Core
                         // Create a new instance of a 'Reference' object.
                         referenceObject = new Reference(EnumerationsReference, 0);
 
-                        // write out the reference for DataJuggler.Net.Core.Enumerations
+                        // write out the reference for DataJuggler.Net5.Enumerations
                         WriteReference(referenceObject);
                     }
 

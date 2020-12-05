@@ -10,11 +10,11 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
-using DataJuggler.Net.Core.Enumerations;
+using DataJuggler.Net5.Enumerations;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class StoredProcedure

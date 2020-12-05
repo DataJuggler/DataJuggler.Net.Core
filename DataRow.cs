@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class DataRow
@@ -17,7 +17,7 @@ namespace DataJuggler.Net.Core
 		private bool delete;
 		private List<DataField> fields;
 		private int index;
-		private DataJuggler.Net.Core.DataTable parentTable;
+		private DataJuggler.Net5.DataTable parentTable;
 		private string tag;
 		#endregion
 
@@ -31,8 +31,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 		
-			#region DataRow(DataJuggler.Net.Core.DataTable ParentDataTable)
-			public DataRow(DataJuggler.Net.Core.DataTable ParentDataTable)
+			#region DataRow(DataJuggler.Net5.DataTable ParentDataTable)
+			public DataRow(DataJuggler.Net5.DataTable ParentDataTable)
 			{
 				// Set Parent table
 				this.ParentTable = ParentDataTable;
@@ -348,14 +348,14 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region PrimaryKey()
-			public DataJuggler.Net.Core.DataField PrimaryKey()
+			public DataJuggler.Net5.DataField PrimaryKey()
 			{
 				// Create DataField 
-				DataJuggler.Net.Core.DataField NoField = new DataField();
+				DataJuggler.Net5.DataField NoField = new DataField();
 				NoField.FieldName = "void";
 
 				// Search For PrimaryKey
-				foreach(DataJuggler.Net.Core.DataField Field in this.Fields)
+				foreach(DataJuggler.Net5.DataField Field in this.Fields)
 				{
 					// Check For PrimaryKey
 					if(Field.PrimaryKey)
@@ -381,7 +381,7 @@ namespace DataJuggler.Net.Core
 				get
 				{
 					// If Any field Has Changes Then The Fields Collection Has Changes
-					foreach(DataJuggler.Net.Core.DataField Field in this.Fields)
+					foreach(DataJuggler.Net5.DataField Field in this.Fields)
 					{
 						if(Field.Changes)
 						{
@@ -401,7 +401,7 @@ namespace DataJuggler.Net.Core
 				set
 				{
 					// If Any field Has Changes Then The Fields Collection Has Changes
-					foreach(DataJuggler.Net.Core.DataField Field in this.Fields)
+					foreach(DataJuggler.Net5.DataField Field in this.Fields)
 					{
 						Field.Changes = value;
 					}
@@ -453,7 +453,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region ParentTable
-			public DataJuggler.Net.Core.DataTable ParentTable
+			public DataJuggler.Net5.DataTable ParentTable
 			{
 				get
 				{

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region Class DataField
@@ -289,7 +289,7 @@ namespace DataJuggler.Net.Core
 				}
 
 				// If This Is A Numeric dataType
-				if(DataJuggler.Net.Core.DataRow.StaticIsNumericDataType(this.DataType))
+				if(DataJuggler.Net5.DataRow.StaticIsNumericDataType(this.DataType))
 				{
 					// This Is A Number, If This Number = 0 Return False
 					if(this.FieldValue.ToString() == "0")
@@ -524,7 +524,7 @@ namespace DataJuggler.Net.Core
 				set
 				{
 					// Capitalize First Character
-					this.fieldname = DataJuggler.Net.Core.DataTable.CapitalizeFirstChar(value);
+					this.fieldname = DataJuggler.Net5.DataTable.CapitalizeFirstChar(value);
 					
 					// Set DBFieldName
 					this.dbfieldname = fieldname;

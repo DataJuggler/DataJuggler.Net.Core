@@ -2,8 +2,9 @@
 
 #region using statements
 
-using DataJuggler.UltimateHelper.Core;
-using DataJuggler.Net.Core.Enumerations;
+using DataJuggler.UltimateHelper;
+using DataJuggler.Net5.Cryptography;
+using DataJuggler.Net5.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,7 +14,7 @@ using System.Text;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class SQLDatabaseConnector
@@ -87,7 +88,7 @@ namespace DataJuggler.Net.Core
 			#endregion
 			
 			#region BuildTableSQL()
-			public string BuildTableSQL(DataJuggler.Net.Core.DataTable dataTable)
+			public string BuildTableSQL(DataJuggler.Net5.DataTable dataTable)
 			{
 				// Create sql Statement To Select All From This table
                 return dataTable.SQLGenerator.CreateSelectAllSQL(dataTable);
@@ -851,7 +852,7 @@ namespace DataJuggler.Net.Core
                         foreach (System.Data.DataRow databaseField in schemaTable.Rows)
                         {
                             // Create New DataField
-                            DataJuggler.Net.Core.DataField field = new DataField();
+                            DataJuggler.Net5.DataField field = new DataField();
 
                             // Set fieldName
                             field.FieldName = DataTable.CapitalizeFirstChar(databaseField["ColumnName"].ToString());
@@ -1340,7 +1341,7 @@ namespace DataJuggler.Net.Core
             }
             #endregion
 
-			#region IsPrimaryKeyUpdateable(DataJuggler.Net.Core.DataTable table)
+			#region IsPrimaryKeyUpdateable(DataJuggler.Net5.DataTable table)
 			/// <summary>
 			/// Determines if the table passed in has a primary key And If This 
 			/// SqlDatabaseConnector Is In The State To Have Just Inserted A 
@@ -1348,7 +1349,7 @@ namespace DataJuggler.Net.Core
 			/// </summary>
 			/// <param name="table"></param>
 			/// <returns>True if all of the above is true; defaults to false</returns>
-			public bool IsPrimaryKeyUpdateable(DataJuggler.Net.Core.DataTable table)
+			public bool IsPrimaryKeyUpdateable(DataJuggler.Net5.DataTable table)
 			{
 				// If This table Has A Primary Key & Captureidentity Is True & DBConnector Last Executed An Insert
                 if ((table.HasPrimaryKey) && (this.Captureidentity) && (this.IsInsert) && (this.Lastidentity > 0))
@@ -1624,7 +1625,7 @@ namespace DataJuggler.Net.Core
                                 schemaField = null;
                                 
                                 // Create New DataField
-                                DataJuggler.Net.Core.DataField field = new DataField();
+                                DataJuggler.Net5.DataField field = new DataField();
 
                                 // Set fieldName
                                 field.FieldName = DataTable.CapitalizeFirstChar(databaseField["Column_Name"].ToString());
@@ -1877,13 +1878,13 @@ namespace DataJuggler.Net.Core
 			
 			#region LoadDataRows() +1 overrides
 
-				#region LoadDataRows(DataJuggler.Net.Core.DataTable table)
+				#region LoadDataRows(DataJuggler.Net5.DataTable table)
 				/// <summary>
 				/// Loads All Rows For This table
 				/// </summary>
 				/// <param name="table"></param>
 				/// <returns></returns>
-				public List<DataRow> LoadDataRows(DataJuggler.Net.Core.DataTable dataTable)
+				public List<DataRow> LoadDataRows(DataJuggler.Net5.DataTable dataTable)
 				{
 					// String to hold sql Statement
                     string sql = BuildTableSQL(dataTable);
@@ -1896,14 +1897,14 @@ namespace DataJuggler.Net.Core
 				}
 				#endregion
 
-				#region LoadDataRows(DataJuggler.Net.Core.DataTable table, string sql)
+				#region LoadDataRows(DataJuggler.Net5.DataTable table, string sql)
 				/// <summary>
 				///  sql statement To Load DataRow
 				/// </summary>
 				/// <param name="table"></param>
 				/// <param name="sql"></param>
 				/// <returns></returns>
-				public List<DataRow> LoadDataRows(DataJuggler.Net.Core.DataTable dataTable, string sql)
+				public List<DataRow> LoadDataRows(DataJuggler.Net5.DataTable dataTable, string sql)
 				{	
 					// Recreate Rows Collection
                     dataTable.Rows = new List<DataRow>();
@@ -2089,13 +2090,13 @@ namespace DataJuggler.Net.Core
                     foreach (System.Data.DataRow tempDataRow in dataSet.Tables[dataTable.Name].Rows)
                     {
                         // Create A New row
-                        dataRow = new DataJuggler.Net.Core.DataRow(dataTable);
+                        dataRow = new DataJuggler.Net5.DataRow(dataTable);
 
                         // Clone Fields Collection For This row
                         dataRow.Fields = CloneFields(dataTable.ActiveFields);
 
                         // Add Each field
-                        foreach (DataJuggler.Net.Core.DataField field in dataTable.ActiveFields)
+                        foreach (DataJuggler.Net5.DataField field in dataTable.ActiveFields)
                         {
                             // Finding field Index
                             int fieldOrdinal = FindFieldOrdinalInDataRow(dataSet, dataTable.Name, field.FieldName, field.Caption);
@@ -2165,7 +2166,7 @@ namespace DataJuggler.Net.Core
 					foreach(System.Data.DataRow dr in DS.Tables["tables"].Rows)
 					{	
 						// Create A New table
-						DataJuggler.Net.Core.DataTable dataTable = new DataJuggler.Net.Core.DataTable();
+						DataJuggler.Net5.DataTable dataTable = new DataJuggler.Net5.DataTable();
                         
                         // set the name
                         dataTable.Name = dr[0].ToString();
@@ -2264,7 +2265,7 @@ namespace DataJuggler.Net.Core
             #endregion
 
             #region LoadDataTableSchema(Database parentDatabase, string tableName)
-            public DataJuggler.Net.Core.DataTable LoadDataTableSchema(Database parentDatabase, string tableName)
+            public DataJuggler.Net5.DataTable LoadDataTableSchema(Database parentDatabase, string tableName)
             {
                 // initial value
                 DataTable dataTable = null;
@@ -2291,7 +2292,7 @@ namespace DataJuggler.Net.Core
                     foreach (System.Data.DataRow dr in DS.Tables["tables"].Rows)
                     {
                         // Create A New table
-                        DataJuggler.Net.Core.DataTable dt = new DataJuggler.Net.Core.DataTable();
+                        DataJuggler.Net5.DataTable dt = new DataJuggler.Net5.DataTable();
 
                         // set the table name
                         string temp = dr[0].ToString();
@@ -2569,7 +2570,7 @@ namespace DataJuggler.Net.Core
                         skip = false;
 
 						// Create A New Stored Procedures
-						DataJuggler.Net.Core.StoredProcedure sp = new StoredProcedure();
+						DataJuggler.Net5.StoredProcedure sp = new StoredProcedure();
 							
 						// Set table Name
 						sp.ProcedureName = dr["Name"].ToString();
@@ -2937,7 +2938,7 @@ namespace DataJuggler.Net.Core
                             else
                             {
                                 // Create New DataField
-                                DataJuggler.Net.Core.DataField field = new DataField();
+                                DataJuggler.Net5.DataField field = new DataField();
 
                                 // Set fieldName
                                 field.FieldName = DataTable.CapitalizeFirstChar(databaseField["Name"].ToString());

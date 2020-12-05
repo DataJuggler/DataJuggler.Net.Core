@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
     
     #region class DataTable 
@@ -416,7 +416,7 @@ namespace DataJuggler.Net.Core
 				get
 				{
 					// If Any field Has Changes Then The Fields Collection Has Changes
-					foreach(DataJuggler.Net.Core.DataRow Row in this.Rows)
+					foreach(DataJuggler.Net5.DataRow Row in this.Rows)
 					{
 						if(Row.Changes)
 						{
@@ -430,7 +430,7 @@ namespace DataJuggler.Net.Core
 				set
 				{
 					// If Any field Has Changes Then The Fields Collection Has Changes
-					foreach(DataJuggler.Net.Core.DataRow Row in this.Rows)
+					foreach(DataJuggler.Net5.DataRow Row in this.Rows)
 					{
 						Row.Changes = value;
 					}
@@ -739,7 +739,7 @@ namespace DataJuggler.Net.Core
 					if(this.ActiveFields != null)
 					{
 					    // Check Each field
-					    foreach(DataJuggler.Net.Core.DataField field in this.ActiveFields)
+					    foreach(DataJuggler.Net5.DataField field in this.ActiveFields)
 					    {
 					        // if this is the Primary Key field
 						    if(field.PrimaryKey)

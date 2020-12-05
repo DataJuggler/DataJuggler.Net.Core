@@ -4,7 +4,7 @@
 
 #endregion
 
-namespace DataJuggler.Net.Core.Enumerations
+namespace DataJuggler.Net5.Enumerations
 {
 
     #region enum ChangeTypeEnum : int

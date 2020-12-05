@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class Reference

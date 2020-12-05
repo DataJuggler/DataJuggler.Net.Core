@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class ConnectionStringHelper

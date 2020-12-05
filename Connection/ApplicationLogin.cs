@@ -6,7 +6,7 @@ using System;
 
 #endregion
 
-namespace DataJuggler.Net.Core.Connection
+namespace DataJuggler.Net5.Connection
 {
 
     #region class ApplicationLogin

@@ -5,11 +5,11 @@
 using System;
 using System.Text;
 using System.Collections.Generic;
-using DataJuggler.UltimateHelper.Core;
+using DataJuggler.UltimateHelper;
 
 #endregion
 
-namespace DataJuggler.Net.Core
+namespace DataJuggler.Net5
 {
 
     #region class SQLGenerator
@@ -70,8 +70,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region BuildFieldClause(DataJuggler.Net.Core.DataField field)
-			public string BuildFieldClause(DataJuggler.Net.Core.DataRow FieldRow, DataJuggler.Net.Core.DataField Field, int FieldCount)
+			#region BuildFieldClause(DataJuggler.Net5.DataField field)
+			public string BuildFieldClause(DataJuggler.Net5.DataRow FieldRow, DataJuggler.Net5.DataField Field, int FieldCount)
 			{
 				// if FieldCount > 0
 				StringBuilder sb = new StringBuilder();
@@ -109,8 +109,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region BuildWhereClause(DataJuggler.Net.Core.DataRow row)
-			public string BuildWhereClause(DataJuggler.Net.Core.DataRow Row)
+			#region BuildWhereClause(DataJuggler.Net5.DataRow row)
+			public string BuildWhereClause(DataJuggler.Net5.DataRow Row)
 			{
 				// Create StringBuilder
 				StringBuilder sb = new StringBuilder(" Where ");
@@ -122,7 +122,7 @@ namespace DataJuggler.Net.Core
 				int PrimaryKeyCount = 0;
 					
 				// Loop Through Each field						
-				foreach(DataJuggler.Net.Core.DataField Field in Row.Fields)
+				foreach(DataJuggler.Net5.DataField Field in Row.Fields)
 				{
 					// If This field Is A Primary Key
 					if(Field.PrimaryKey)
@@ -145,8 +145,8 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region CreateDeleteSQL(DataJuggler.Net.Core.DataRow row)
-			public string CreateDeleteSQL(DataJuggler.Net.Core.DataRow Row)
+			#region CreateDeleteSQL(DataJuggler.Net5.DataRow row)
+			public string CreateDeleteSQL(DataJuggler.Net5.DataRow Row)
 			{
 				// Verify There Are Changes In This row & The row Is Updateable
 				if(IsUpdateable(Row))
@@ -267,10 +267,10 @@ namespace DataJuggler.Net.Core
             }
             #endregion
 			
-			#region CreateInsertSQL(DataJuggler.Net.Core.DataRow row) +1 override
+			#region CreateInsertSQL(DataJuggler.Net5.DataRow row) +1 override
 			
-				#region CreateInsertSQL(DataJuggler.Net.Core.DataRow row)
-				public string CreateInsertSQL(DataJuggler.Net.Core.DataRow Row)
+				#region CreateInsertSQL(DataJuggler.Net5.DataRow row)
+				public string CreateInsertSQL(DataJuggler.Net5.DataRow Row)
 				{
 					// Return CreateInsertSQL
 					return CreateInsertSQL(Row,false);
@@ -278,8 +278,8 @@ namespace DataJuggler.Net.Core
 				}
 				#endregion 
 				
-				#region CreateInsertSQL(DataJuggler.Net.Core.DataRow row, bool WithOrWithoutChanges)
-				public string CreateInsertSQL(DataJuggler.Net.Core.DataRow Row, bool WithOrWithoutChanges)
+				#region CreateInsertSQL(DataJuggler.Net5.DataRow row, bool WithOrWithoutChanges)
+				public string CreateInsertSQL(DataJuggler.Net5.DataRow Row, bool WithOrWithoutChanges)
 				{
 					// Boolean For Is This The First field
 					bool FirstField = true;
@@ -295,7 +295,7 @@ namespace DataJuggler.Net.Core
 						sb.Append("] (");
 
 						// Add Each fieldName
-						foreach(DataJuggler.Net.Core.DataField Field in Row.Fields)
+						foreach(DataJuggler.Net5.DataField Field in Row.Fields)
 						{
 							// If This field.dataType Is Supported
 							if(DataManager.IsSupported(Field.DataType))
@@ -326,7 +326,7 @@ namespace DataJuggler.Net.Core
 						FirstField = true;
 
 						// Add Each fieldName
-						foreach(DataJuggler.Net.Core.DataField Field in Row.Fields)
+						foreach(DataJuggler.Net5.DataField Field in Row.Fields)
 						{
 							// If This field.dataType Is Supported
 							if(DataManager.IsSupported(Field.DataType))
@@ -378,13 +378,13 @@ namespace DataJuggler.Net.Core
 				
 			#endregion
 
-			#region CreateSelectAllSQL(DataJuggler.Net.Core.DataTable table) 
+			#region CreateSelectAllSQL(DataJuggler.Net5.DataTable table) 
 			/// <summary>
 			/// Creates A Valid sql Statement To Select All Records From A Given table
 			/// </summary>
 			/// <param name="table">table To Create sql Statement For</param>
 			/// <returns>sql Statement To Select All Records From A Given table</returns>
-			public string CreateSelectAllSQL(DataJuggler.Net.Core.DataTable dataTable)
+			public string CreateSelectAllSQL(DataJuggler.Net5.DataTable dataTable)
 			{		
 				// If tableName Is Null
                 if ((dataTable == null) || (dataTable.Name == null))
@@ -415,17 +415,17 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region CreateSelectSQL(DataJuggler.Net.Core.DataTable table, int primaryKeyValue) +3 overrides
+			#region CreateSelectSQL(DataJuggler.Net5.DataTable table, int primaryKeyValue) +3 overrides
 			
-				#region CreateSelectSQL(DataJuggler.Net.Core.DataTable table, int primaryKeyValue) 
+				#region CreateSelectSQL(DataJuggler.Net5.DataTable table, int primaryKeyValue) 
 				/// <summary>
 				/// Returns a valid sql statement to load an object from a table based upon the primary key.
 				/// This is for a single field primary key.
 				/// </summary>
-				/// <param name="table">DataJuggler.Net.Core.DataTable</param>
+				/// <param name="table">DataJuggler.Net5.DataTable</param>
 				/// <param name="primaryKeyValue">An int value in where clause</param>
 				/// <returns>A valid sql statement if the table has a primary key</returns>
-				public string CreateSelectSQL(DataJuggler.Net.Core.DataTable table, int primaryKeyValue)
+				public string CreateSelectSQL(DataJuggler.Net5.DataTable table, int primaryKeyValue)
 				{
 					// Verify table Has A Primary Key
 					if(table.PrimaryKey == null)
@@ -463,15 +463,15 @@ namespace DataJuggler.Net.Core
 				}
 				#endregion
 				
-				#region CreateSelectSQL(DataJuggler.Net.Core.DataTable table, double primaryKeyValue) 
+				#region CreateSelectSQL(DataJuggler.Net5.DataTable table, double primaryKeyValue) 
 				/// <summary>
 				/// Returns a valid sql statement to load an object from a table based upon the primary key.
 				/// This is for a single field primary key.
 				/// </summary>
-				/// <param name="table">DataJuggler.Net.Core.DataTable</param>
+				/// <param name="table">DataJuggler.Net5.DataTable</param>
 				/// <param name="primaryKeyValue">A double value in where clause</param>
 				/// <returns>A valid sql statement if the table has a primary key</returns>
-				public string CreateSelectSQL(DataJuggler.Net.Core.DataTable table, double primaryKeyValue)
+				public string CreateSelectSQL(DataJuggler.Net5.DataTable table, double primaryKeyValue)
 				{
 					// Verify table Has A Primary Key
 					if(table.PrimaryKey != null)
@@ -509,15 +509,15 @@ namespace DataJuggler.Net.Core
 				}
 				#endregion
 				
-				#region CreateSelectSQL(DataJuggler.Net.Core.DataTable table, string primaryKeyValue) 
+				#region CreateSelectSQL(DataJuggler.Net5.DataTable table, string primaryKeyValue) 
 				/// <summary>
 				/// Returns a valid sql statement to load an object from a table based upon the primary key.
 				/// This is for a single field primary key.
 				/// </summary>
-				/// <param name="table">DataJuggler.Net.Core.DataTable</param>
+				/// <param name="table">DataJuggler.Net5.DataTable</param>
 				/// <param name="primaryKeyValue">A string value in where clause</param>
 				/// <returns>A valid sql statement if the table has a primary key</returns>
-				public string CreateSelectSQL(DataJuggler.Net.Core.DataTable table, string primaryKeyValue)
+				public string CreateSelectSQL(DataJuggler.Net5.DataTable table, string primaryKeyValue)
 				{
 					// Verify table Has A Primary Key
 					if(table.PrimaryKey != null)
@@ -558,7 +558,7 @@ namespace DataJuggler.Net.Core
 				}
 				#endregion
 				
-				#region CreateSelectSQL(DataJuggler.Net.Core.DataTable table, string fieldName, string fieldValue) 
+				#region CreateSelectSQL(DataJuggler.Net5.DataTable table, string fieldName, string fieldValue) 
 				/// <summary>
 				/// Returns a valid sql statement to load an object from a table based upon a fieldName &
 				/// field value passed in. This method is for a single field >> value pair.
@@ -566,7 +566,7 @@ namespace DataJuggler.Net.Core
 				/// <param name="fieldName">field name that where clause will include</param>
 				/// <param name="fieldValue">value in where clause</param>
 				/// <returns>A valid sql statement to select a row with a certain field, value</returns>
-				public string CreateSelectSQL(DataJuggler.Net.Core.DataTable table, string fieldName, string fieldValue)
+				public string CreateSelectSQL(DataJuggler.Net5.DataTable table, string fieldName, string fieldValue)
 				{
 					// bool UseQuotes
 					bool UseQuotes = IsString(table, fieldName);
@@ -629,8 +629,8 @@ namespace DataJuggler.Net.Core
 				
 			#endregion
 			
-			#region CreateUpdateSQL(DataJuggler.Net.Core.DataRow row)
-			public string CreateUpdateSQL(DataJuggler.Net.Core.DataRow Row)
+			#region CreateUpdateSQL(DataJuggler.Net5.DataRow row)
+			public string CreateUpdateSQL(DataJuggler.Net5.DataRow Row)
 			{
 				// Boolean For Is This The First field
 				bool FirstField = true;
@@ -646,7 +646,7 @@ namespace DataJuggler.Net.Core
 					sb.Append("] Set ");
 
 					// Add Each fieldName
-					foreach(DataJuggler.Net.Core.DataField Field in Row.Fields)
+					foreach(DataJuggler.Net5.DataField Field in Row.Fields)
 					{
 						// If This field.dataType Is Supported
 						if(DataManager.IsSupported(Field.DataType))
@@ -783,13 +783,13 @@ namespace DataJuggler.Net.Core
 			#endregion
 
 			#region IsString(string fieldName)
-			public bool IsString(DataJuggler.Net.Core.DataTable table, string fieldName)
+			public bool IsString(DataJuggler.Net5.DataTable table, string fieldName)
 			{
                 // initial value
                 bool isString = false;
                 
 				// Create Generic row
-				DataJuggler.Net.Core.DataRow row = new DataRow();
+				DataJuggler.Net5.DataRow row = new DataRow();
 				
 				// Get the Index Of Fieldname
                 int Index = SQLDatabaseConnector.FindFieldIndex(table.ActiveFields, fieldName); 
@@ -811,14 +811,14 @@ namespace DataJuggler.Net.Core
 			}
 			#endregion
 
-			#region IsUpdateable(DataJuggler.Net.Core.DataRow row)
-			public bool IsUpdateable(DataJuggler.Net.Core.DataRow Row)
+			#region IsUpdateable(DataJuggler.Net5.DataRow row)
+			public bool IsUpdateable(DataJuggler.Net5.DataRow Row)
 			{
                 // Initial Value
                 bool updateable = false;
 
 				// Check If There Is A PrimaryKey
-				DataJuggler.Net.Core.DataField PrimaryKey = Row.PrimaryKey();
+				DataJuggler.Net5.DataField PrimaryKey = Row.PrimaryKey();
 
 				// Check If PrimaryKey Exists
 				if(PrimaryKey.FieldName == "void")

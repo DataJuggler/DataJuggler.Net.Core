@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataJuggler.Net5", "DataJuggler.Net5.csproj", "{906BA587-A8F0-4716-9E7E-FCD8A154DDA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{906BA587-A8F0-4716-9E7E-FCD8A154DDA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906BA587-A8F0-4716-9E7E-FCD8A154DDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906BA587-A8F0-4716-9E7E-FCD8A154DDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906BA587-A8F0-4716-9E7E-FCD8A154DDA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8DCE572-B4A4-449A-81A9-5D7556304B76}
+	EndGlobalSection
+EndGlobal

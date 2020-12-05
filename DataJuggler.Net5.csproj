@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Data Juggler</Authors>
     <Company>Data Juggler</Company>
@@ -16,13 +16,15 @@ CSharpClassWriter - A class that is useful in code generating C# classes.
 
 </Description>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/DataJuggler/DataJuggler.Net.Core</PackageProjectUrl>
-    <Version>2.1.5</Version>
+    <PackageProjectUrl>https://github.com/DataJuggler/DataJuggler.Net5</PackageProjectUrl>
+    <Version>2.5.0</Version>
     <Copyright>Data Juggler - Corby Nichols</Copyright>
     <RepositoryType>Git Hub</RepositoryType>
-    <RepositoryUrl>https://github.com/DataJuggler/DataJuggler.Net.Core.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/DataJuggler/DataJuggler.Net5.git</RepositoryUrl>
     <PackageTags>C#, SQL Server, DataTier.Net, DataJuggler.Net</PackageTags>
-    <PackageReleaseNotes>I added new properties named Tag to DataField, DataRow and DataTable classes. I use these fields in a new
+    <PackageReleaseNotes>Version 2.5.0: This version converted the .Net Core version to .Net 5. All the different names confuse even me, so I am trying to get down to everything I keep working on is .Net 5. 
+
+I added new properties named Tag to DataField, DataRow and DataTable classes. I use these fields in a new
 project I am working on called DataDiff, which will be used to find changes before and after something happens.
 
 I updated the reference to System.Data.SqlClient to 4.8.0
@@ -30,8 +32,9 @@ I updated the reference to DataJuggler.UltimateHelper.Core to version 1.1.4</Pac
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.UltimateHelper.Core" Version="1.1.7" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="DataJuggler.Net5.Cryptography" Version="1.5.0" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="1.5.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>

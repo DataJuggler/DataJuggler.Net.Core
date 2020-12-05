@@ -6,7 +6,7 @@ using System;
 using System.Xml;
 using System.Data.SqlClient;
 using System.Collections.Generic;
-using DataJuggler.Net.Core.Enumerations;
+using DataJuggler.Net5.Enumerations;
 using IDbDataParameter = System.Data.IDbDataParameter;
 using DataSet = System.Data.DataSet;
 using CommandType = System.Data.CommandType;
@@ -14,11 +14,11 @@ using ParameterDirection = System.Data.ParameterDirection;
 using ConnectionState = System.Data.ConnectionState;
 using CommandBehavior = System.Data.CommandBehavior;
 using data = System.Data;
-using DataJuggler.Net;
+using DataJuggler.Net5;
 
 #endregion
 
-namespace DataJuggler.Net.Core.Sql
+namespace DataJuggler.Net5.Sql
 {
 
     #region class SqlHelper
